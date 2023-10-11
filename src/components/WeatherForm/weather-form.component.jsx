@@ -1,13 +1,16 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 
 import WeatherService from '../WeatherService/weather-service.component';
 import WeatherDisplay from '../WeatherDisplay/weather-display.component';
+
+import { useDataContext } from "../../DataContext/DataContext";
 
 import './weather-form.styles.scss';
 
 const WeatherForm = () => {
     const [city, setCity] = useState('');
-    const [weatherData, setWeatherData] = useState(null);
+    const { weatherData } = useDataContext();
+    console.log(weatherData);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -29,9 +32,6 @@ const WeatherForm = () => {
 
             {/* Render WeatherService as a component and pass the 'city' prop */}
             <WeatherService city={city} />
-
-            {/* Pass weatherdata to WeatherDisplay */}
-            { weatherData && <WeatherDisplay  weatherData={weatherData}/> }
         </div>
     )
 }
