@@ -10,7 +10,7 @@ function App() {
 
   return (
     <div className="App">
-      {/* Conditionally render WeatherForm or WeatherDisplay */}
+      {/* Conditionally render WeatherForm or WeatherDisplay based on the weatherData*/}
       {weatherData !== null ? <WeatherDisplay /> : <WeatherForm />}
     </div>
   );

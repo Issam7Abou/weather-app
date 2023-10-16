@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { useDataContext } from '../../DataContext/DataContext';
 
 const WeatherService = ({ city }) => {
@@ -13,8 +13,6 @@ const WeatherService = ({ city }) => {
         try {
           const response = await fetch(apiUrl);
           const data = await response.json();
-          // Log the data to verify it's fetched correctly
-          console.log(data);
           setWeatherData(data); // Set data in the context
         } catch (error) {
           console.log('Error fetching weather data:', error);
@@ -23,7 +21,7 @@ const WeatherService = ({ city }) => {
     };
 
     fetchWeatherData();
-  }, [city]);
+  });
 
   return null;
 };

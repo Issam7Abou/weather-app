@@ -1,19 +1,16 @@
-import React, { useState, useContext } from "react";
+import React, { useState } from "react";
 
 import WeatherService from '../WeatherService/weather-service.component';
-import WeatherDisplay from '../WeatherDisplay/weather-display.component';
-
-import { useDataContext } from "../../DataContext/DataContext";
 
 import './weather-form.styles.scss';
 
 const WeatherForm = () => {
     const [city, setCity] = useState('');
-    const { weatherData } = useDataContext();
-    console.log(weatherData);
+    const [submitted, setSubmitted] = useState(false);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        setSubmitted(true); // When user submites this becomes TRUE
         console.log('The city typed is:', city);
     }
 
@@ -30,8 +27,8 @@ const WeatherForm = () => {
                 <button type="submit">Get Weather</button>
             </form>
 
-            {/* Render WeatherService as a component and pass the 'city' prop */}
-            <WeatherService city={city} />
+            {/* Render WeatherService only when the user submitted the form*/}
+            {submitted && <WeatherService city={city} />}
         </div>
     )
 }
