@@ -2,10 +2,18 @@ import React from "react";
 
 import { useDataContext } from '../../DataContext/DataContext';
 
+import { useButtonContext } from "../../DataContext/ButtonContext";
+
 import './weather-display.styles.scss';
 
 const WeatherDisplay = () => {
+    const { setButtonActive } = useButtonContext();
     const { weatherData } = useDataContext();
+
+    const handleButtonClick = () => {
+        setButtonActive(true);
+    }
+
     const iconUrl = `https:${weatherData.current.condition.icon}`
 
     const fullLocalTime = weatherData.location.localtime;
@@ -14,9 +22,6 @@ const WeatherDisplay = () => {
     const localHour = parseInt(localTimeParts[0], 10);
     const isNight = localHour >= 19 || localHour < 6;  // See if based on localTime is night or day;
     const containerClass = `weatherDisplay-container ${isNight ? 'night' : 'day'}`; // Add the "day" or "night" class conditionally
-
-    console.log('Local Time is:', localTime)
-    console.log('The Hour is:', localHour)
 
     return (
         <div className={containerClass}>
@@ -31,6 +36,7 @@ const WeatherDisplay = () => {
                 <p>Wind Speed: {weatherData.current.wind_kph} KPH</p>
                 <p>Wind Gust: {weatherData.current.gust_kph} KPH</p>
             </div>
+            <button onClick={handleButtonClick} className="return-btn">HOME</button>
         </div>
     )
 }
