@@ -1,4 +1,4 @@
-import './App.css';
+import './App.scss';
 
 import WeatherForm from './components/WeatherForm/weather-form.component';
 import WeatherDisplay from './components/WeatherDisplay/weather-display.component';

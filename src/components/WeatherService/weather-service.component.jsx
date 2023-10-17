@@ -7,7 +7,7 @@ const WeatherService = ({ city }) => {
   useEffect(() => {
     const fetchWeatherData = async () => {
       if (city) {
-        const apiKey = '';
+        const apiKey = '84271be46b5f45c89e0215008230410';
         const apiUrl = `https://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${city}&aqi=no`;
 
         try {

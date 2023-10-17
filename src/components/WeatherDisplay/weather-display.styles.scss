@@ -1,20 +1,46 @@
+$dayBackground: url('https://wallpaperaccess.com/full/175910.jpg');
+$nightBackground: url('https://wallpapercave.com/wp/VCf1lhA.jpg');
+
 .weatherDisplay-container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-image: url("https://wallpaperaccess.com/full/175910.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
   padding: 60px;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-  margin: 20px;
+
+  &.day {
+    background-image: $dayBackground;
+  }
+
+  &.night {
+    background-image: $nightBackground;
+
+    h1 {
+      color: whitesmoke;
+    }
+
+    h2 {
+      color: aqua;
+    }
+
+    h3 {
+      color: rgb(138, 164, 221);
+    }
+
+    p {
+      color: white;
+    }
+  }
 
   h1 {
     color: #204570;
     font-size: 2rem;
     margin: 0;
+    letter-spacing: 1px;
   }
 
   h3 {
@@ -38,5 +64,6 @@
     font-size: .8rem;
     margin: 5px 0;
     font-weight: bold;
+    letter-spacing: 1.5px;
   }
 }

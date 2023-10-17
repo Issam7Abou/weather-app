@@ -11,7 +11,6 @@ const WeatherForm = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         setSubmitted(true); // When user submites this becomes TRUE
-        console.log('The city typed is:', city);
     }
 
     return (
