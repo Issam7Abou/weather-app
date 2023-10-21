@@ -1,0 +1,90 @@
+$dayBackground: url('https://wallpaperaccess.com/full/175910.jpg');
+$nightBackground: url('https://wallpapercave.com/wp/VCf1lhA.jpg');
+
+.weatherDisplay-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  padding: 60px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+
+  &.day {
+    background-image: $dayBackground;
+  }
+
+  &.night {
+    background-image: $nightBackground;
+
+    h1 {
+      color: whitesmoke;
+    }
+
+    h2 {
+      color: aqua;
+    }
+
+    h3 {
+      color: rgb(138, 164, 221);
+    }
+
+    p {
+      color: white;
+    }
+  }
+
+  h1 {
+    color: #204570;
+    font-size: 2rem;
+    margin: 0;
+    letter-spacing: 1px;
+  }
+
+  h3 {
+    font-size: 1rem;
+    color: #555;
+    margin: 5px 0;
+  }
+
+  img {
+    width: 70px;
+  }
+
+  h2 {
+    color: #204570;
+    font-size: 3rem;
+    margin: 10px 0;
+  }
+
+  p {
+    color: #204570;
+    font-size: .8rem;
+    margin: 5px 0;
+    font-weight: bold;
+    letter-spacing: 1.5px;
+  }
+
+  .return-btn {
+    margin-top: 40px;
+    background-color: #204570;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+  
+    &:hover {
+      background-color: #3b5998;
+      transform: scale(1.05);
+    }
+  
+    &:focus {
+      outline: none;
+    }
+  }
+}
