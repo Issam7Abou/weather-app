@@ -8,14 +8,17 @@ import reportWebVitals from './reportWebVitals';
 
 import { DataProvider } from './DataContext/DataContext';
 import { ButtonProvider } from './DataContext/ButtonContext';
+import { SubmittedProvider } from './DataContext/SubmittedContext';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <ButtonProvider>
-      <DataProvider>
-        <App />
-      </DataProvider>
+      <SubmittedProvider>
+        <DataProvider>
+          <App />
+        </DataProvider>
+      </SubmittedProvider>
     </ButtonProvider>
   </React.StrictMode>
 );

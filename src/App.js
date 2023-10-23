@@ -10,8 +10,6 @@ function App() {
   const { weatherData } = useDataContext();
   const { buttonActive } = useButtonContext();
 
-  console.log('Is HOME Button active?:', buttonActive)
-
   return (
     <div className="App">
       {buttonActive ? (<WeatherForm />) 

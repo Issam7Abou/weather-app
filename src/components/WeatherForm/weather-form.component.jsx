@@ -1,16 +1,27 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 
 import WeatherService from '../WeatherService/weather-service.component';
+
+import { useSubmittedContext } from "../../DataContext/SubmittedContext";
+import { useButtonContext } from "../../DataContext/ButtonContext";
 
 import './weather-form.styles.scss';
 
 const WeatherForm = () => {
     const [city, setCity] = useState('');
-    const [submitted, setSubmitted] = useState(false);
+    const {isSubmitted, setIsSubmitted} = useSubmittedContext();
+    const { setButtonActive } = useButtonContext();
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        setSubmitted(true); // When user submites this becomes TRUE
+
+        //
+        if (city.trim() !== '') {
+            setIsSubmitted(true); // When user submites this becomes TRUE
+            setButtonActive(false);
+        } else {
+            alert('Please enter a valid City')
+        }
     }
 
     return (
@@ -27,7 +38,7 @@ const WeatherForm = () => {
             </form>
 
             {/* Render WeatherService only when the user submitted the form*/}
-            {submitted && <WeatherService city={city} />}
+            {isSubmitted && <WeatherService city={city} />}
         </div>
     )
 }

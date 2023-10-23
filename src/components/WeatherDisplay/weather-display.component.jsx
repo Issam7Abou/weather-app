@@ -11,11 +11,13 @@ const WeatherDisplay = () => {
     const { weatherData } = useDataContext();
 
     const handleButtonClick = () => {
-            setButtonActive(true);   
+            setButtonActive(true);  
     }
 
+    // Construct the full Link to Icon Weather
     const iconUrl = `https:${weatherData.current.condition.icon}`
 
+    // Logic to separate the date from API and use it to switch beetwen day and night
     const fullLocalTime = weatherData.location.localtime;
     const localTime = fullLocalTime.slice(-5);
     const localTimeParts = localTime.split(':');
